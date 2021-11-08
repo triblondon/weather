@@ -1,0 +1,27 @@
+# This file describes a Fastly Compute@Edge package. To learn more visit:
+# https://developer.fastly.com/reference/fastly-toml/
+
+authors = ["pdelolmo@fastly.com", "kailan@enviark.com"]
+description = "Weather dashboard at the edge"
+language = "rust"
+manifest_version = 2
+name = "weather-release"
+service_id = "3BCRKNm5R0iXXcfZzmwmn8"
+
+[setup]
+
+  [setup.backends]
+
+    [setup.backends."api.openweathermap.org"]
+      address = "api.openweathermap.org"
+      description = "OpenWeatherMap API Server"
+      port = 443
+
+  [setup.dictionaries]
+
+    [setup.dictionaries.weather_auth]
+
+      [setup.dictionaries.weather_auth.items]
+
+        [setup.dictionaries.weather_auth.items.key]
+          description = "API token for openweathermap.org"
